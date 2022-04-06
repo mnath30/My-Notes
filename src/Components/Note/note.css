@@ -1,0 +1,30 @@
+div.modal {
+  max-width: 100%;
+  margin: 1.2rem auto;
+}
+span.badge {
+  background-color: var(--primary-color);
+}
+.dark span.badge {
+  color: var(--black);
+}
+.tag-section {
+  margin: 0.4rem 1.2rem;
+}
+div.modal-footer {
+  margin: 0.4rem;
+  padding: 0.2rem;
+  display: flex;
+}
+button.modal-btn {
+  padding: 0.4rem 0.4rem;
+  cursor: pointer;
+  margin: 0.4rem;
+  border: 1px solid var(--secondary-color);
+}
+button.modal-btn:hover {
+  background-color: var(--primary-color);
+}
+span.date-section {
+  margin-right: auto;
+}
