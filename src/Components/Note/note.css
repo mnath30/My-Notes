@@ -1,6 +1,6 @@
 div.modal {
   max-width: 100%;
-  margin: 1.2rem auto;
+  margin: 1.2rem;
 }
 span.badge {
   background-color: var(--primary-color);
@@ -9,7 +9,8 @@ span.badge {
   color: var(--black);
 }
 .tag-section {
-  margin: 0.4rem 1.2rem;
+  margin: 0.4rem 0.4rem;
+  padding: 0.4rem;
 }
 div.modal-footer {
   margin: 0.4rem;
@@ -26,5 +27,16 @@ button.modal-btn:hover {
   background-color: var(--primary-color);
 }
 span.date-section {
-  margin-right: auto;
+  margin: 0.8rem auto 0.4rem auto;
+}
+
+.line {
+  border-top: 2px solid var(--primary-color);
+}
+.main-note-content {
+  min-height: 4rem;
+}
+.date-section,
+.tag-section {
+  font-size: 1rem;
 }

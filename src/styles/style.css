@@ -32,8 +32,9 @@ a {
 .content-section {
   grid-area: main;
   overflow-y: scroll;
-  max-width: 80%;
+  max-width: 100%;
   margin: 0 auto 1.2rem auto;
+  justify-content: center;
 }
 
 /* Hiding Scrollbar for Chrome, Safari and Opera */
@@ -50,7 +51,11 @@ a {
 
 .note-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0.8rem;
+  margin: 0.8rem 1.2rem;
+  justify-content: center;
 }
 .note-button {
   background: transparent;
