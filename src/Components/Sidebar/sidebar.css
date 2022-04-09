@@ -1,9 +1,5 @@
 @import url("../../styles/style.css");
 
-.lst-container {
-  border: transparent;
-}
-
 a.active {
   background-color: var(--primary-color);
   border-radius: 0 8px 8px 0;

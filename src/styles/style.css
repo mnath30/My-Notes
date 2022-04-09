@@ -33,7 +33,6 @@ a {
   grid-area: main;
   overflow-y: scroll;
   max-width: 100%;
-  margin: 0 auto 1.2rem auto;
   justify-content: center;
 }
 
