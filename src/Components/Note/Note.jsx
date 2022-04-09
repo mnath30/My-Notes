@@ -1,6 +1,5 @@
 import "./note.css";
 import { useNotes } from "../../Context/noteContext";
-import { Modal } from "../Modal/Modal";
 import { updateNote } from "../../helper";
 
 const Note = ({ noteItem, setUpdateModal }) => {
