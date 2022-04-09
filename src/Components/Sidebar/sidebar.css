@@ -3,9 +3,6 @@
 .lst-container {
   border: transparent;
 }
-.lst {
-  padding: 1.6rem;
-}
 
 a.active {
   background-color: var(--primary-color);
