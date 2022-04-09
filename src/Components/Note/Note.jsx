@@ -1,9 +1,7 @@
 import "./note.css";
 import { useNotes } from "../../Context/noteContext";
-import { updateNote } from "../../helper";
 
-const Note = ({ noteItem, setUpdateModal }) => {
-  const setShowModal = setUpdateModal;
+const Note = ({ noteItem }) => {
   const { noteDispatch } = useNotes();
   const { noteTitle, noteContent, noteTags, date } = noteItem;
   return (
@@ -36,10 +34,7 @@ const Note = ({ noteItem, setUpdateModal }) => {
       </div>
       <div className="modal-footer">
         <span>
-          <button
-            className="modal-btn border"
-            onClick={() => updateNote(noteItem, setShowModal)}
-          >
+          <button className="modal-btn border">
             <i className="fas fa-edit"></i>
           </button>
           <button

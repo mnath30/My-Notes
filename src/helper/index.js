@@ -10,5 +10,4 @@ export { deleteArchive } from "./deleteArchive";
 export { removeNote } from "./removeNote";
 export { restoreNote } from "./restoreNote";
 export { archiveDeletedNote } from "./archiveDeletedNote";
-export { updateNote } from "./updateNote";
 export { tagData } from "./tagdata";
