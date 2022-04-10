@@ -28,13 +28,11 @@ const noteReduce = (state, action) => {
         deletednotes: [...newDeletedList],
       };
     case "ARCHIVE_FROM_ALL_NOTES":
-      console.log("Reducerfunc", state.archivednotes, state.allnotes);
       const { newArchiveList, newAllNotesList } = archiveNote(
         action.payload,
         state.archivednotes,
         state.allnotes
       );
-      console.log("Reducerfunc", newArchiveList, newAllNotesList);
       return {
         ...state,
         allnotes: [...newAllNotesList],

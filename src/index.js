@@ -4,21 +4,20 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider } from "./Context/themeContext";
-import { NoteProvider } from "./Context/noteContext";
+import { ThemeProvider, NoteProvider } from "./Context";
 
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <NoteProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+      <ThemeProvider>
+        <NoteProvider>
           <App />
-        </BrowserRouter>
-      </NoteProvider>
-    </ThemeProvider>
+        </NoteProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

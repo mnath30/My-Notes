@@ -1,7 +1,7 @@
 import { Searchbar, Sidebar, Note, Modal } from "../Components";
 import "../styles/style.css";
 import { useState } from "react";
-import { useNotes } from "../Context/noteContext";
+import { useNotes } from "../Context";
 
 const Home = ({ contentTemplate }) => {
   const { noteState } = useNotes();

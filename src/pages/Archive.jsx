@@ -1,6 +1,6 @@
 import { Searchbar, Sidebar, ArchivedNote } from "../Components";
 import "../styles/style.css";
-import { useNotes } from "../Context/noteContext";
+import { useNotes } from "../Context";
 
 const Archive = ({ contentTemplate }) => {
   const { noteState } = useNotes();

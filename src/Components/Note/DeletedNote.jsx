@@ -1,5 +1,5 @@
 import "./note.css";
-import { useNotes } from "../../Context/noteContext";
+import { useNotes } from "../../Context";
 
 const DeletedNote = ({ noteItem }) => {
   const { noteDispatch } = useNotes();

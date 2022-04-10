@@ -1,38 +1,39 @@
 import "./modal.css";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
-import { useNotes } from "../../Context/noteContext";
-import { getCurrentDate } from "../../helper";
-import { tagData } from "../../helper";
+import { useNotes } from "../../Context";
+import { getCurrentDate, tagData, defaultNoteData } from "../../helper";
 
 const Modal = ({ modalClose }) => {
+  const [noteData, setNoteData] = useState(defaultNoteData);
   const { noteDispatch } = useNotes();
   const { setShowModal } = modalClose;
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [taglist, setTagList] = useState([]);
   const handleTagList = (e) => {
     if (e.target.checked) {
-      taglist.includes(e.target.value)
-        ? setTagList([...taglist])
-        : setTagList([...taglist, e.target.value]);
+      noteData.taglist.includes(e.target.value)
+        ? setNoteData({ ...noteData, taglist: [...noteData.taglist] })
+        : setNoteData({
+            ...noteData,
+            taglist: [...noteData.taglist, e.target.value],
+          });
     } else {
-      setTagList([...taglist.filter((item) => item !== e.target.value)]);
+      setNoteData({
+        ...noteData,
+        taglist: noteData.taglist.filter((item) => item !== e.target.value),
+      });
     }
   };
 
   const saveData = () => {
     const newnote = {
       _id: uuid(),
-      noteTitle: title === "" ? "Empty Note" : title,
-      noteContent: content,
-      noteTags: taglist,
+      noteTitle: noteData.title === "" ? "Empty Note" : noteData.title,
+      noteContent: noteData.content,
+      noteTags: noteData.taglist,
       date: getCurrentDate(),
     };
     setShowModal((showModal) => !showModal);
-    setTitle("");
-    setContent("");
-    setTagList([]);
+    setNoteData(defaultNoteData);
     noteDispatch({ type: "ADD_TO_ALL_NOTES", payload: newnote });
   };
   return (
@@ -49,8 +50,10 @@ const Modal = ({ modalClose }) => {
               type="text"
               placeholder="Enter Title..."
               id="title"
-              onChange={(e) => setTitle(e.target.value)}
-              value={title}
+              onChange={(e) =>
+                setNoteData({ ...noteData, title: e.target.value })
+              }
+              value={noteData.title}
             />
           </div>
         </div>
@@ -63,8 +66,10 @@ const Modal = ({ modalClose }) => {
               rows="4"
               cols="50"
               id="content"
-              onChange={(e) => setContent(e.target.value)}
-              value={content}
+              onChange={(e) =>
+                setNoteData({ ...noteData, content: e.target.value })
+              }
+              value={noteData.content}
             ></textarea>
           </div>
           <div>

@@ -1,6 +1,6 @@
 import { Searchbar, Sidebar, DeletedNote } from "../Components";
 import "../styles/style.css";
-import { useNotes } from "../Context/noteContext";
+import { useNotes } from "../Context";
 
 const Trash = ({ contentTemplate }) => {
   const { noteState } = useNotes();
