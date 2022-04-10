@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
 import { Home, Archive, Trash, Profile } from "./pages";
 import { Navbar } from "./Components";
-import { useTheme } from "./Context/themeContext";
+import { useTheme } from "./Context";
 
 function App() {
   const { darkTheme } = useTheme();

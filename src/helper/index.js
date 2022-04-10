@@ -1,2 +1,14 @@
 export { setTheme } from "./setTheme";
 export { initialThemeValue } from "./initialThemeValue";
+export { getCurrentDate } from "./getCurrentDate";
+export { addNote } from "./addNote";
+export { archiveNote } from "./archiveNote";
+export { initialNote } from "./initialNote";
+export { deleteNote } from "./deleteNote";
+export { unArchiveNote } from "./unarchiveNote";
+export { deleteArchive } from "./deleteArchive";
+export { removeNote } from "./removeNote";
+export { restoreNote } from "./restoreNote";
+export { archiveDeletedNote } from "./archiveDeletedNote";
+export { tagData } from "./tagdata";
+export { defaultNoteData } from "./defaultNoteData";

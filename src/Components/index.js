@@ -4,3 +4,4 @@ export { Sidebar } from "./Sidebar/Sidebar";
 export { Note } from "./Note/Note";
 export { ArchivedNote } from "./Note/ArchievedNote";
 export { DeletedNote } from "./Note/DeletedNote";
+export { Modal } from "./Modal/Modal";
