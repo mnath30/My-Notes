@@ -7,6 +7,8 @@ import {
   removeNote,
   restoreNote,
   archiveDeletedNote,
+  updateNote,
+  updateArchiveNote,
 } from "../helper";
 
 const noteReduce = (state, action) => {
@@ -86,6 +88,18 @@ const noteReduce = (state, action) => {
         ...state,
         archivednotes: [...archiveListFromDelete],
         deletednotes: [...updatedDeletedList],
+      };
+    case "UPDATE_FROM_ALL_NOTES":
+      return {
+        ...state,
+        allnotes: [...updateNote(action.payload, state.allnotes)],
+      };
+    case "UPDATE_FROM_ARCHIVE_NOTES":
+      return {
+        ...state,
+        archivednotes: [
+          ...updateArchiveNote(action.payload, state.archivednotes),
+        ],
       };
     case "PIN_ALL_NOTES":
       return { ...state };
