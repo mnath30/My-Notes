@@ -1,12 +1,13 @@
 import { Searchbar, Sidebar, Note, Modal } from "../Components";
 import "../styles/style.css";
-import { useState } from "react";
 import { useNotes } from "../Context";
+import { useDisplayModal } from "../hooks";
 
 const Home = ({ contentTemplate }) => {
   const { noteState } = useNotes();
   const { allnotes } = noteState;
-  const [showModal, setShowModal] = useState(false);
+  const { showModal, setShowModal } = useDisplayModal();
+
   return (
     <>
       <Sidebar classtemplate="side-section" />
@@ -18,21 +19,14 @@ const Home = ({ contentTemplate }) => {
         >
           Create New Note
         </button>
-        {showModal && <Modal modalClose={{ setShowModal }} />}
+        {showModal && <Modal closeModal={setShowModal} />}
         <h2>All Notes</h2>
         <div className="note-container">
           {allnotes.length === 0 && (
             <h1>You have not added any notes yet...</h1>
           )}
           {allnotes.length !== 0 &&
-            allnotes.map((item) => (
-              <Note
-                setUpdateModal={setShowModal}
-                key={item._id}
-                noteItem={item}
-                modalVisibility={showModal}
-              />
-            ))}
+            allnotes.map((item) => <Note key={item._id} noteItem={item} />)}
         </div>
       </div>
     </>

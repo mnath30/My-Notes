@@ -1,13 +1,18 @@
 import "./note.css";
 import { useNotes } from "../../Context";
+import { Modal } from "../Modal/Modal";
+import { useDisplayModal } from "../../hooks";
 
 const Note = ({ noteItem }) => {
   const { noteDispatch } = useNotes();
   const { noteTitle, noteContent, noteTags, date } = noteItem;
+  const { showModal, setShowModal } = useDisplayModal();
   return (
     <div className="modal">
       <div className="modal-header">
-        <h3>{noteTitle}</h3>
+        <h3>
+          {noteTitle === "" && noteContent === "" ? "Empty Note" : noteTitle}
+        </h3>
         <div className="modal-dismiss">
           <button className="modal-btn border">
             <i className="fas fa-thumbtack"></i>
@@ -34,9 +39,19 @@ const Note = ({ noteItem }) => {
       </div>
       <div className="modal-footer">
         <span>
-          <button className="modal-btn border">
+          <button
+            className="modal-btn border"
+            onClick={() => setShowModal((showModal) => !showModal)}
+          >
             <i className="fas fa-edit"></i>
           </button>
+          {showModal && (
+            <Modal
+              closeModal={setShowModal}
+              value={noteItem}
+              modalInUpdateMode="true"
+            />
+          )}
           <button
             className="modal-btn border"
             onClick={() =>

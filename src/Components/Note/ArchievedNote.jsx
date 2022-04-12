@@ -1,9 +1,12 @@
 import "./note.css";
 import { useNotes } from "../../Context";
+import { Modal } from "../Modal/Modal";
+import { useDisplayModal } from "../../hooks";
 
 const ArchivedNote = ({ noteItem }) => {
   const { noteDispatch } = useNotes();
   const { noteTitle, noteContent, noteTags, date } = noteItem;
+  const { showModal, setShowModal } = useDisplayModal();
   return (
     <div className="modal">
       <div className="modal-header">
@@ -39,9 +42,20 @@ const ArchivedNote = ({ noteItem }) => {
       </div>
       <div className="modal-footer">
         <span>
-          <button className="modal-btn border">
+          <button
+            className="modal-btn border"
+            onClick={() => setShowModal((showModal) => !showModal)}
+          >
             <i className="fas fa-edit"></i>
           </button>
+          {showModal && (
+            <Modal
+              closeModal={setShowModal}
+              value={noteItem}
+              modalInUpdateMode="true"
+              isInArchive="true"
+            />
+          )}
           <button
             className="modal-btn border"
             onClick={() =>

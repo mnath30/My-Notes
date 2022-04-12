@@ -1,7 +1,9 @@
 const defaultNoteData = {
-  title: "",
-  content: "",
-  taglist: [],
+  _id: null,
+  noteTitle: "",
+  noteContent: "",
+  noteTags: [],
+  date: null,
 };
 
 export { defaultNoteData };

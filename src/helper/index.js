@@ -12,3 +12,7 @@ export { restoreNote } from "./restoreNote";
 export { archiveDeletedNote } from "./archiveDeletedNote";
 export { tagData } from "./tagdata";
 export { defaultNoteData } from "./defaultNoteData";
+export { updateNote } from "./updateNote";
+export { handleTagList } from "./handleTagList";
+export { saveNoteData } from "./saveNoteData";
+export { updateArchiveNote } from "./updateArchiveNote";

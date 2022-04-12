@@ -1,45 +1,28 @@
-import "./modal.css";
-import { useState } from "react";
-import { v4 as uuid } from "uuid";
+import {
+  tagData,
+  defaultNoteData,
+  saveNoteData,
+  handleTagList,
+} from "../../helper";
 import { useNotes } from "../../Context";
-import { getCurrentDate, tagData, defaultNoteData } from "../../helper";
+import { useNoteData } from "../../hooks";
+import "./modal.css";
 
-const Modal = ({ modalClose }) => {
-  const [noteData, setNoteData] = useState(defaultNoteData);
+const Modal = ({
+  closeModal,
+  value,
+  modalInUpdateMode = false,
+  isInArchive = false,
+}) => {
   const { noteDispatch } = useNotes();
-  const { setShowModal } = modalClose;
-  const handleTagList = (e) => {
-    if (e.target.checked) {
-      noteData.taglist.includes(e.target.value)
-        ? setNoteData({ ...noteData, taglist: [...noteData.taglist] })
-        : setNoteData({
-            ...noteData,
-            taglist: [...noteData.taglist, e.target.value],
-          });
-    } else {
-      setNoteData({
-        ...noteData,
-        taglist: noteData.taglist.filter((item) => item !== e.target.value),
-      });
-    }
-  };
+  const { noteData, setNoteData } = useNoteData(
+    modalInUpdateMode ? value : defaultNoteData
+  );
 
-  const saveData = () => {
-    const newnote = {
-      _id: uuid(),
-      noteTitle: noteData.title === "" ? "Empty Note" : noteData.title,
-      noteContent: noteData.content,
-      noteTags: noteData.taglist,
-      date: getCurrentDate(),
-    };
-    setShowModal((showModal) => !showModal);
-    setNoteData(defaultNoteData);
-    noteDispatch({ type: "ADD_TO_ALL_NOTES", payload: newnote });
-  };
   return (
     <div
       className="input-modal-body"
-      onClick={() => setShowModal((showModal) => !showModal)}
+      onClick={() => closeModal((showModal) => !showModal)}
     >
       <div className="modal input-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-head">
@@ -50,10 +33,10 @@ const Modal = ({ modalClose }) => {
               type="text"
               placeholder="Enter Title..."
               id="title"
+              value={noteData.noteTitle}
               onChange={(e) =>
-                setNoteData({ ...noteData, title: e.target.value })
+                setNoteData({ ...noteData, noteTitle: e.target.value })
               }
-              value={noteData.title}
             />
           </div>
         </div>
@@ -67,9 +50,9 @@ const Modal = ({ modalClose }) => {
               cols="50"
               id="content"
               onChange={(e) =>
-                setNoteData({ ...noteData, content: e.target.value })
+                setNoteData({ ...noteData, noteContent: e.target.value })
               }
-              value={noteData.content}
+              value={noteData.noteContent}
             ></textarea>
           </div>
           <div>
@@ -81,8 +64,9 @@ const Modal = ({ modalClose }) => {
                     type="checkbox"
                     id={element.id}
                     name={element.labelname}
-                    onChange={(e) => handleTagList(e)}
+                    onChange={(e) => handleTagList(e, noteData, setNoteData)}
                     value={element.id}
+                    checked={noteData.noteTags.includes(element.id)}
                   />
                   <label htmlFor={element.id}>{element.labelname}</label>
                 </span>
@@ -91,12 +75,43 @@ const Modal = ({ modalClose }) => {
           </div>
         </div>
         <div className="modal-footer">
-          <button className="modal-btn border" onClick={saveData}>
-            Save
-          </button>
+          {modalInUpdateMode ? (
+            <button
+              className="modal-btn border"
+              onClick={() => {
+                closeModal((showModal) => !showModal);
+                isInArchive
+                  ? noteDispatch({
+                      type: "UPDATE_FROM_ARCHIVE_NOTES",
+                      payload: noteData,
+                    })
+                  : noteDispatch({
+                      type: "UPDATE_FROM_ALL_NOTES",
+                      payload: noteData,
+                    });
+              }}
+            >
+              Update
+            </button>
+          ) : (
+            <button
+              className="modal-btn border"
+              onClick={() => {
+                const newNote = saveNoteData(
+                  noteData.noteTitle,
+                  noteData.noteContent,
+                  noteData.noteTags
+                );
+                closeModal((showModal) => !showModal);
+                noteDispatch({ type: "ADD_TO_ALL_NOTES", payload: newNote });
+              }}
+            >
+              Save
+            </button>
+          )}
           <button
             className="modal-btn border"
-            onClick={() => setShowModal((showModal) => !showModal)}
+            onClick={() => closeModal((showModal) => !showModal)}
           >
             Close
           </button>
