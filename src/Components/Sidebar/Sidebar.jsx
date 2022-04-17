@@ -14,9 +14,6 @@ const Sidebar = ({ classtemplate }) => {
         <NavLink className="lst" to="/trash">
           Trash
         </NavLink>
-        <NavLink className="lst" to="/profile">
-          Profile
-        </NavLink>
       </ul>
     </>
   );
