@@ -1,6 +1,12 @@
 const getCurrentDate = () => {
-  const date = new Date();
-  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  const dateTime = new Date();
+  const onlyDate = `${dateTime.getDate()}/${
+    dateTime.getMonth() + 1
+  }/${dateTime.getFullYear()}`;
+  return {
+    dateTime,
+    onlyDate,
+  };
 };
 
 export { getCurrentDate };

@@ -18,6 +18,7 @@ const Modal = ({
   const { noteData, setNoteData } = useNoteData(
     modalInUpdateMode ? value : defaultNoteData
   );
+  const tags = [...tagData];
 
   return (
     <div
@@ -58,17 +59,17 @@ const Modal = ({
           <div>
             <h3 className="padding-sm">Tags</h3>
             <div className="padding-sm">
-              {tagData.map((element) => (
-                <span key={element.id} className="input-tag">
+              {tags.map((item) => (
+                <span key={item.id} className="input-tag">
                   <input
                     type="checkbox"
-                    id={element.id}
-                    name={element.labelname}
+                    id={item.id}
+                    name={item.labelname}
                     onChange={(e) => handleTagList(e, noteData, setNoteData)}
-                    value={element.id}
-                    checked={noteData.noteTags.includes(element.id)}
+                    value={item.id}
+                    checked={noteData.noteTags.includes(item.id)}
                   />
-                  <label htmlFor={element.id}>{element.labelname}</label>
+                  <label htmlFor={item.id}>{item.labelname}</label>
                 </span>
               ))}
             </div>

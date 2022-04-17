@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
-import { Home, Archive, Trash, Profile } from "./pages";
+import { Home, Archive, Trash } from "./pages";
 import { Navbar } from "./Components";
 import { useTheme } from "./Context";
 
@@ -19,10 +19,6 @@ function App() {
         <Route
           path="/trash"
           element={<Trash contentTemplate="content-section" />}
-        />
-        <Route
-          path="/profile"
-          element={<Profile contentTemplate="content-section" />}
         />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>

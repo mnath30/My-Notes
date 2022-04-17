@@ -1,14 +1,17 @@
 import "./note.css";
 import { useNotes } from "../../Context";
 import { Modal } from "../Modal/Modal";
-import { useDisplayModal } from "../../hooks";
+import { useDisplayModal, useShowColorPalette } from "../../hooks";
+import { handleBlur } from "../../helper";
+import { ColorPalette } from "../ColorPalette/ColorPalette";
 
 const ArchivedNote = ({ noteItem }) => {
   const { noteDispatch } = useNotes();
-  const { noteTitle, noteContent, noteTags, date } = noteItem;
+  const { noteTitle, noteContent, noteTags, date, backgroundColor } = noteItem;
   const { showModal, setShowModal } = useDisplayModal();
+  const { displayColorPalette, setDisplayColorPalette } = useShowColorPalette();
   return (
-    <div className="modal">
+    <div className={`modal ${backgroundColor}`}>
       <div className="modal-header">
         <h3>{noteTitle}</h3>
         <div className="modal-dismiss">
@@ -42,6 +45,26 @@ const ArchivedNote = ({ noteItem }) => {
       </div>
       <div className="modal-footer">
         <span>
+          <div
+            className="btn-color-palette"
+            onBlur={(e) => handleBlur(e, setDisplayColorPalette)}
+          >
+            <button
+              className="modal-btn border"
+              onClick={() => {
+                setDisplayColorPalette((show) => !show);
+              }}
+            >
+              <i className="fas fa-palette"></i>
+              {displayColorPalette && (
+                <ColorPalette
+                  design="color-palette"
+                  noteCard={noteItem}
+                  page="archive"
+                />
+              )}
+            </button>
+          </div>
           <button
             className="modal-btn border"
             onClick={() => setShowModal((showModal) => !showModal)}
