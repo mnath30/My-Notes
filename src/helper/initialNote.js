@@ -8,6 +8,12 @@ const initialNote = {
   deletednotes: localStorage.getItem("deletednotes")
     ? [...JSON.parse(localStorage.getItem("deletednotes"))]
     : [],
+  filterednotes: localStorage.getItem("allnotes")
+    ? [...JSON.parse(localStorage.getItem("allnotes"))]
+    : [],
+  sort: "",
+  search: "",
+  filtertags: [],
 };
 
 export { initialNote };

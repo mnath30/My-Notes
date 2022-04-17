@@ -1,10 +1,12 @@
 import { Searchbar, Sidebar, ArchivedNote } from "../Components";
 import "../styles/style.css";
 import { useNotes } from "../Context";
+import { searchFilter } from "../helper";
 
 const Archive = ({ contentTemplate }) => {
   const { noteState } = useNotes();
-  const { archivednotes } = noteState;
+  const { archivednotes, search } = noteState;
+  const searchedArchive = searchFilter(archivednotes, search);
   return (
     <>
       <Sidebar classtemplate="side-section" />
@@ -12,11 +14,11 @@ const Archive = ({ contentTemplate }) => {
         <Searchbar />
         <h2> Archived Notes </h2>
         <div className="note-container">
-          {archivednotes.length === 0 && (
+          {searchedArchive.length === 0 && (
             <h1>You have not added any archived notes yet...</h1>
           )}
-          {archivednotes.length !== 0 &&
-            archivednotes.map((item) => (
+          {searchedArchive.length !== 0 &&
+            searchedArchive.map((item) => (
               <ArchivedNote key={item._id} noteItem={item} />
             ))}
         </div>

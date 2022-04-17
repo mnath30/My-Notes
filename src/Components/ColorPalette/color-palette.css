@@ -1,0 +1,34 @@
+@import url("../../styles/style.css");
+
+.palette-color {
+  height: 2rem;
+  width: 2rem;
+  padding: 0.8rem;
+  margin: 0.4rem;
+  background-color: white;
+  border-radius: 50%;
+}
+.palette {
+  background-color: var(--primary-color);
+}
+.crimson-color {
+  background-color: var(--crimson);
+}
+.purple-color {
+  background-color: var(--purple);
+}
+.blue-color {
+  background-color: var(--blue);
+}
+.green-color {
+  background-color: var(--green);
+}
+.yellow-color {
+  background-color: var(--yellow);
+}
+.dark .inherit-background {
+  background-color: var(--dark-theme-background);
+}
+.inherit-background {
+  background-color: var(--white);
+}

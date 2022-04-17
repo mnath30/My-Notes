@@ -40,3 +40,29 @@
 .tag-section {
   font-size: 1rem;
 }
+
+.btn-color-palette {
+  position: relative;
+  display: inline-block;
+  /* min-width: 8rem; */
+}
+.color-palette {
+  position: absolute;
+  border-radius: 8px;
+}
+
+.crimson-background {
+  background-color: var(--crimson);
+}
+.purple-background {
+  background-color: var(--purple);
+}
+.blue-background {
+  background-color: var(--blue);
+}
+.green-background {
+  background-color: var(--green);
+}
+.yellow-background {
+  background-color: var(--yellow);
+}

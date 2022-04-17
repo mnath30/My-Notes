@@ -1,28 +1,48 @@
 import "./note.css";
 import { useNotes } from "../../Context";
 import { Modal } from "../Modal/Modal";
-import { useDisplayModal } from "../../hooks";
+import { useDisplayModal, useShowColorPalette } from "../../hooks";
+import { ColorPalette } from "../ColorPalette/ColorPalette";
+import { handleBlur } from "../../helper";
 
 const Note = ({ noteItem }) => {
   const { noteDispatch } = useNotes();
-  const { noteTitle, noteContent, noteTags, date } = noteItem;
+  const { noteTitle, noteContent, noteTags, date, isPinned, backgroundColor } =
+    noteItem;
   const { showModal, setShowModal } = useDisplayModal();
+  const { displayColorPalette, setDisplayColorPalette } = useShowColorPalette();
+
   return (
-    <div className="modal">
+    <div className={`modal ${backgroundColor}`}>
       <div className="modal-header">
         <h3>
           {noteTitle === "" && noteContent === "" ? "Empty Note" : noteTitle}
         </h3>
         <div className="modal-dismiss">
-          <button className="modal-btn border">
-            <i className="fas fa-thumbtack"></i>
-          </button>
+          {isPinned ? (
+            <button
+              className="modal-btn border"
+              onClick={() =>
+                noteDispatch({ type: "UNPIN_NOTES", payload: noteItem })
+              }
+            >
+              <i className="fas fa-thumbtack"></i>
+            </button>
+          ) : (
+            <button
+              className="modal-btn border"
+              onClick={() =>
+                noteDispatch({ type: "PIN_NOTES", payload: noteItem })
+              }
+            >
+              <i className="far fa-thumbtack"></i>
+            </button>
+          )}
         </div>
       </div>
       <div className="line"></div>
       <div className="modal-body">
         <div className="main-note-content">{noteContent}</div>
-
         <div className="date-section">Created on: {date} </div>
         <div className="tag-section">
           Tags:
@@ -39,6 +59,26 @@ const Note = ({ noteItem }) => {
       </div>
       <div className="modal-footer">
         <span>
+          <div
+            className="btn-color-palette"
+            onBlur={(e) => handleBlur(e, setDisplayColorPalette)}
+          >
+            <button
+              className="modal-btn border"
+              onClick={() => {
+                setDisplayColorPalette((show) => !show);
+              }}
+            >
+              <i className="fas fa-palette"></i>
+              {displayColorPalette && (
+                <ColorPalette
+                  design="color-palette"
+                  noteCard={noteItem}
+                  page="allnotes"
+                />
+              )}
+            </button>
+          </div>
           <button
             className="modal-btn border"
             onClick={() => setShowModal((showModal) => !showModal)}

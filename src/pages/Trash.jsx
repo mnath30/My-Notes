@@ -1,10 +1,12 @@
 import { Searchbar, Sidebar, DeletedNote } from "../Components";
 import "../styles/style.css";
 import { useNotes } from "../Context";
+import { searchFilter } from "../helper";
 
 const Trash = ({ contentTemplate }) => {
   const { noteState } = useNotes();
-  const { deletednotes } = noteState;
+  const { deletednotes, search } = noteState;
+  const filterTrashNotes = searchFilter(deletednotes, search);
   return (
     <>
       <Sidebar classtemplate="side-section" />
@@ -12,11 +14,11 @@ const Trash = ({ contentTemplate }) => {
         <Searchbar />
         <h2>Notes in Trash</h2>
         <div className="note-container">
-          {deletednotes.length === 0 && (
+          {filterTrashNotes.length === 0 && (
             <h1>You have not added any notes to trash yet...</h1>
           )}
-          {deletednotes.length !== 0 &&
-            deletednotes.map((item) => (
+          {filterTrashNotes.length !== 0 &&
+            filterTrashNotes.map((item) => (
               <DeletedNote key={item._id} noteItem={item} />
             ))}
         </div>
