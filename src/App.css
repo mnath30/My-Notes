@@ -10,3 +10,26 @@
   background-color: var(--dark-theme-background);
   color: var(--white);
 }
+
+/*mobile sidebar background overlay */
+.background-overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: var(--white);
+  width: 12rem;
+}
+
+.dark .mobile-sidebar {
+  background-color: var(--dark-theme-background);
+  color: var(--white);
+}

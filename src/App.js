@@ -1,66 +1,30 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Mockman from "mockman-js";
-import {
-  Home,
-  Archive,
-  Trash,
-  PageNotFound,
-  LandingPage,
-  Login,
-  Signup,
-  Logout,
-} from "./pages";
-import { Navbar } from "./components";
+import { Navbar, Sidebar } from "./components";
 import { useTheme } from "./context";
-import { RequiresAuth } from "./helper";
+import { Router } from "./router/Router";
+import { useMobileNavigation } from "./hooks";
 
 function App() {
   const { darkTheme } = useTheme();
+  const { displayMobileNav, toggleSidebar, hideSidebar } =
+    useMobileNavigation();
+
   return (
     // <div className={`App ${darkTheme ? "dark" : ""} grid`}>
     <div className={`App ${darkTheme ? "dark" : ""}`}>
-      <Navbar navTemplate="navigation-bar" />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        {/* <Route
-          path="home"
-          element={
-            <RequiresAuth>
-              <Home contentTemplate="content-section" />
-            </RequiresAuth>
-          }
-        /> */}
-        <Route
-          path="home"
-          element={
-            <RequiresAuth>
-              <Home />
-            </RequiresAuth>
-          }
-        />
-        <Route
-          path="archive"
-          element={
-            <RequiresAuth>
-              <Archive contentTemplate="content-section" />
-            </RequiresAuth>
-          }
-        />
-        <Route
-          path="trash"
-          element={
-            <RequiresAuth>
-              <Trash contentTemplate="content-section" />
-            </RequiresAuth>
-          }
-        />
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
-        <Route path="logout" element={<Logout />} />
-        <Route path="*" element={<PageNotFound />} />
-        <Route path="mockman" element={<Mockman />} />
-      </Routes>
+      <Navbar navTemplate="navigation-bar" toggleMobileNav={toggleSidebar} />
+      <Router />
+
+      {displayMobileNav && (
+        <div className="background-overlay" onClick={hideSidebar}>
+          <Sidebar
+            classtemplate="mobile-sidebar"
+            clickHandler={(e) => e.stopPropagation()}
+            hideMobileNav={hideSidebar}
+            mobileNav={displayMobileNav}
+          />
+        </div>
+      )}
     </div>
   );
 }
