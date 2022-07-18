@@ -1,5 +1,5 @@
 import "./filter.css";
-import { useNotes } from "../../Context";
+import { useNotes } from "../../context";
 
 const Filter = () => {
   const { noteDispatch } = useNotes();

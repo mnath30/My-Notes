@@ -1,6 +1,6 @@
-import { Searchbar, Sidebar, Note, Modal, Filter } from "../Components";
+import { Searchbar, Sidebar, Note, Modal, Filter } from "../components";
 import "../styles/style.css";
-import { useNotes } from "../Context";
+import { useNotes } from "../context";
 import { useDisplayModal } from "../hooks";
 import { sortByDate, searchFilter } from "../helper";
 
@@ -12,8 +12,9 @@ const Home = ({ contentTemplate }) => {
   const searchedNotes = searchFilter(sortedNotes, search);
   const pinnedNotes = searchedNotes.filter((element) => element.isPinned);
   const unpinnedNotes = searchedNotes.filter((element) => !element.isPinned);
+
   return (
-    <>
+    <div className="grid container">
       <Sidebar classtemplate="side-section" />
       <div className={`${contentTemplate}`}>
         <Searchbar />
@@ -48,7 +49,7 @@ const Home = ({ contentTemplate }) => {
             ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export { Home };

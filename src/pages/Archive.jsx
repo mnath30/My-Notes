@@ -1,6 +1,6 @@
-import { Searchbar, Sidebar, ArchivedNote } from "../Components";
+import { Searchbar, Sidebar, ArchivedNote } from "../components";
 import "../styles/style.css";
-import { useNotes } from "../Context";
+import { useNotes } from "../context";
 import { searchFilter } from "../helper";
 
 const Archive = ({ contentTemplate }) => {
@@ -8,7 +8,7 @@ const Archive = ({ contentTemplate }) => {
   const { archivednotes, search } = noteState;
   const searchedArchive = searchFilter(archivednotes, search);
   return (
-    <>
+    <div className="grid container">
       <Sidebar classtemplate="side-section" />
       <div className={`${contentTemplate}`}>
         <Searchbar />
@@ -23,7 +23,7 @@ const Archive = ({ contentTemplate }) => {
             ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

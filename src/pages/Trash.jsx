@@ -1,6 +1,6 @@
-import { Searchbar, Sidebar, DeletedNote } from "../Components";
+import { Searchbar, Sidebar, DeletedNote } from "../components";
 import "../styles/style.css";
-import { useNotes } from "../Context";
+import { useNotes } from "../context";
 import { searchFilter } from "../helper";
 
 const Trash = ({ contentTemplate }) => {
@@ -8,7 +8,7 @@ const Trash = ({ contentTemplate }) => {
   const { deletednotes, search } = noteState;
   const filterTrashNotes = searchFilter(deletednotes, search);
   return (
-    <>
+    <div className="grid container">
       <Sidebar classtemplate="side-section" />
       <div className={`${contentTemplate}`}>
         <Searchbar />
@@ -23,7 +23,7 @@ const Trash = ({ contentTemplate }) => {
             ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -3,6 +3,7 @@
 .App {
   text-align: center;
   color: var(--black);
+  min-height: 100vh;
 }
 
 .dark {

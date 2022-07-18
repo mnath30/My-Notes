@@ -23,3 +23,4 @@ export { searchFilter } from "./searchFilter";
 export { filterTagList } from "./filterTagList";
 export { changeNoteColor } from "./changeNoteColor";
 export { handleBlur } from "./handleBlur";
+export { RequiresAuth } from "./RequiresAuth";

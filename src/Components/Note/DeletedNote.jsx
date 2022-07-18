@@ -1,5 +1,5 @@
 import "./note.css";
-import { useNotes } from "../../Context";
+import { useNotes } from "../../context";
 import { useShowColorPalette } from "../../hooks";
 import { handleBlur } from "../../helper";
 import { ColorPalette } from "../ColorPalette/ColorPalette";

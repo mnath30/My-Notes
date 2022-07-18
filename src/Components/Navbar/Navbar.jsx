@@ -1,6 +1,6 @@
 import "./navbar.css";
 import { Logo } from "../../asset";
-import { useTheme } from "../../Context";
+import { useTheme } from "../../context";
 import { setTheme } from "../../helper";
 import { Link } from "react-router-dom";
 
