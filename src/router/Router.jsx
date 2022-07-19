@@ -20,7 +20,7 @@ const Router = () => {
         path="home"
         element={
           <RequiresAuth>
-            <Home contentTemplate="content-section" />
+            <Home />
           </RequiresAuth>
         }
       />
@@ -28,7 +28,7 @@ const Router = () => {
         path="archive"
         element={
           <RequiresAuth>
-            <Archive contentTemplate="content-section" />
+            <Archive />
           </RequiresAuth>
         }
       />
@@ -36,7 +36,7 @@ const Router = () => {
         path="trash"
         element={
           <RequiresAuth>
-            <Trash contentTemplate="content-section" />
+            <Trash />
           </RequiresAuth>
         }
       />

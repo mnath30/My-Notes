@@ -2,13 +2,15 @@ import "./sidebar.css";
 import { NavLink, Link } from "react-router-dom";
 import { Logo } from "../../asset";
 
-const Sidebar = ({ classtemplate, clickHandler, hideMobileNav, mobileNav }) => {
+const Sidebar = ({ clickHandler, hideMobileNav, mobileNav }) => {
   const encodedToken = localStorage.getItem("encodedToken");
 
   return (
     <>
       <ul
-        className={`lst-container stacked-lst ${classtemplate}`}
+        className={`lst-container stacked-lst ${
+          !mobileNav ? "side-section" : "mobile-sidebar"
+        }`}
         onClick={clickHandler}
       >
         {mobileNav && (

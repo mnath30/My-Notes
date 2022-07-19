@@ -9,7 +9,7 @@ const Navbar = ({ navTemplate, toggleMobileNav }) => {
   const encodedToken = localStorage.getItem("encodedToken");
 
   return (
-    <nav className={`navigation  ${navTemplate}`}>
+    <nav className="navigation navigation-bar">
       <span className="mobile-nav" onClick={toggleMobileNav}>
         <i className="fas fa-bars"></i>
       </span>

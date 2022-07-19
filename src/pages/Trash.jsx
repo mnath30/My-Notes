@@ -3,14 +3,14 @@ import "../styles/style.css";
 import { useNotes } from "../context";
 import { searchFilter } from "../helper";
 
-const Trash = ({ contentTemplate }) => {
+const Trash = () => {
   const { noteState } = useNotes();
   const { deletednotes, search } = noteState;
   const filterTrashNotes = searchFilter(deletednotes, search);
   return (
     <div className="grid container">
-      <Sidebar classtemplate="side-section" />
-      <div className={`${contentTemplate}`}>
+      <Sidebar />
+      <div className="content-section">
         <Searchbar />
         <h2>Notes in Trash</h2>
         <div className="note-container">

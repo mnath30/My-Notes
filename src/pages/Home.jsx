@@ -4,7 +4,7 @@ import { useNotes } from "../context";
 import { useDisplayModal } from "../hooks";
 import { sortByDate, searchFilter } from "../helper";
 
-const Home = ({ contentTemplate }) => {
+const Home = () => {
   const { noteState } = useNotes();
   const { allnotes, sort, search } = noteState;
   const { showModal, setShowModal } = useDisplayModal();
@@ -15,8 +15,8 @@ const Home = ({ contentTemplate }) => {
 
   return (
     <div className="grid container">
-      <Sidebar classtemplate="side-section" />
-      <div className={`${contentTemplate}`}>
+      <Sidebar />
+      <div className="content-section">
         <Searchbar />
         <Filter />
         <button

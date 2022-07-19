@@ -2,6 +2,9 @@
   max-width: 100%;
   margin: 1.2rem;
 }
+.modal-body {
+  word-break: break-word;
+}
 .badge {
   background-color: var(--primary-color);
 }
@@ -42,9 +45,7 @@
 }
 
 .btn-color-palette {
-  position: relative;
   display: inline-block;
-  /* min-width: 8rem; */
 }
 .color-palette {
   position: absolute;
