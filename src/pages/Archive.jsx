@@ -1,6 +1,6 @@
 import { Searchbar, Sidebar, ArchivedNote } from "../components";
 import "../styles/style.css";
-import { useNotes } from "../context";
+import { useNotes } from "../Context";
 import { searchFilter } from "../helper";
 
 const Archive = () => {

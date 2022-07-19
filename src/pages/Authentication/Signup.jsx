@@ -2,7 +2,7 @@ import "./authentication.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { signupService } from "../../services";
-import { useAuth } from "../../context";
+import { useAuth } from "../../Context";
 import { Loader } from "../../components";
 import { RESET } from "../../helper/constants";
 

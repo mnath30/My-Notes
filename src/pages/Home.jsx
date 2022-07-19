@@ -1,6 +1,6 @@
 import { Searchbar, Sidebar, Note, Modal, Filter } from "../components";
 import "../styles/style.css";
-import { useNotes } from "../context";
+import { useNotes } from "../Context";
 import { useDisplayModal } from "../hooks";
 import { sortByDate, searchFilter } from "../helper";
 

@@ -1,5 +1,5 @@
 import "./searchbar.css";
-import { useNotes } from "../../context";
+import { useNotes } from "../../Context";
 import { useState } from "react";
 
 const Searchbar = () => {

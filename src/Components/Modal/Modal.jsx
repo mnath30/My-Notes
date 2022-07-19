@@ -4,7 +4,7 @@ import {
   saveNoteData,
   handleTagList,
 } from "../../helper";
-import { useNotes } from "../../context";
+import { useNotes } from "../../Context";
 import { useNoteData } from "../../hooks";
 import "./modal.css";
 

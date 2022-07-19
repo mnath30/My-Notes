@@ -1,6 +1,6 @@
 import "./App.css";
 import { Navbar, Sidebar } from "./components";
-import { useTheme } from "./context";
+import { useTheme } from "./Context";
 import { Router } from "./router/Router";
 import { useMobileNavigation } from "./hooks";
 

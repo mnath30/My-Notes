@@ -1,5 +1,5 @@
 import "./color-palette.css";
-import { useNotes } from "../../context";
+import { useNotes } from "../../Context";
 
 const ColorPalette = ({ design, noteCard, page }) => {
   const { noteDispatch } = useNotes();

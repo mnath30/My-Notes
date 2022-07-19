@@ -1,5 +1,5 @@
 import "./note.css";
-import { useNotes } from "../../context";
+import { useNotes } from "../../Context";
 import { Modal } from "../Modal/Modal";
 import { useDisplayModal, useShowColorPalette } from "../../hooks";
 import { handleBlur } from "../../helper";

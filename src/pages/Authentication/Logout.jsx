@@ -1,7 +1,7 @@
 import "./authentication.css";
 import { Link, useNavigate } from "react-router-dom";
 import { LOGOUT, AUTH_LOADING } from "../../helper/constants";
-import { useAuth } from "../../context";
+import { useAuth } from "../../Context";
 import { Loader } from "../../components";
 
 const Logout = () => {
