@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { signupService } from "../../services";
 import { useAuth } from "../../Context";
-import { Loader } from "../../components";
+import { Loader } from "../../Components";
 import { RESET } from "../../helper/constants";
 
 const Signup = () => {
