@@ -3,14 +3,14 @@ import "../styles/style.css";
 import { useNotes } from "../Context";
 import { searchFilter } from "../helper";
 
-const Archive = ({ contentTemplate }) => {
+const Archive = () => {
   const { noteState } = useNotes();
   const { archivednotes, search } = noteState;
   const searchedArchive = searchFilter(archivednotes, search);
   return (
-    <>
-      <Sidebar classtemplate="side-section" />
-      <div className={`${contentTemplate}`}>
+    <div className="grid container">
+      <Sidebar />
+      <div className="content-section">
         <Searchbar />
         <h2> Archived Notes </h2>
         <div className="note-container">
@@ -23,7 +23,7 @@ const Archive = ({ contentTemplate }) => {
             ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

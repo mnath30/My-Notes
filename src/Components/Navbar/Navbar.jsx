@@ -4,16 +4,21 @@ import { useTheme } from "../../Context";
 import { setTheme } from "../../helper";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ navTemplate }) => {
+const Navbar = ({ navTemplate, toggleMobileNav }) => {
   const { darkTheme, setDarkTheme } = useTheme();
+  const encodedToken = localStorage.getItem("encodedToken");
+
   return (
-    <nav className={`navigation  ${navTemplate}`}>
-      <Link to="/">
+    <nav className="navigation navigation-bar">
+      <span className="mobile-nav" onClick={toggleMobileNav}>
+        <i className="fas fa-bars"></i>
+      </span>
+      <Link to={encodedToken ? "/home" : "/"}>
         <div className="nav-brand-logo">
           <img className="nav-img" src={Logo} alt="app-logo" />
         </div>
       </Link>
-      <Link to="/">
+      <Link to={encodedToken ? "/home" : "/"}>
         <h3 className="brandname">My Notes</h3>
       </Link>
       <div className="nav-sub-options">

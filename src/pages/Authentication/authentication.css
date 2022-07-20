@@ -1,0 +1,96 @@
+/* main section */
+.form__container {
+  border-radius: 8px;
+  margin: 4rem auto;
+  width: 20rem;
+  border: 1px solid var(--black);
+}
+
+.dark .form__container {
+  border: 1px solid var(--white);
+}
+
+/* Form */
+.form__container-content {
+  margin: 0.8rem 1.6rem;
+}
+
+.form__container-heading {
+  padding: 0.8rem 1.6rem 0 1.6rem;
+}
+
+.form-label {
+  padding: 0.4rem 0;
+  display: block;
+  text-align: left;
+}
+
+/* Input */
+.form-input {
+  box-sizing: border-box;
+  border: 1px solid var(--black);
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  margin: 0 0 0.8rem 0;
+  outline: none;
+}
+
+.password-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.txt-input:focus {
+  border: none;
+}
+
+/* Button */
+.form-btn {
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  margin: 0.4rem 0;
+}
+
+.form-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.btn {
+  border-radius: 5px;
+  margin: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  width: 6rem;
+}
+
+.password-btn {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  margin: 0.2rem;
+}
+
+/* Link */
+.form-link {
+  color: var(--secondary-color);
+  padding: 0.4rem 0;
+}
+.form-link:hover {
+  cursor: pointer;
+}
+
+/* Form footer */
+.form__container-footer {
+  justify-content: center;
+}
+
+.password-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--white);
+}

@@ -11,18 +11,34 @@
 .nav-img {
   border-radius: 8px;
 }
+
 .theme-button {
   padding: 0.4rem;
   background: transparent;
 }
+
 .dark .theme-button {
   color: var(--white);
 }
+
 .brandname {
   color: var(--black);
   cursor: pointer;
   font-size: 1.6rem;
 }
+
 .dark .brandname {
   color: var(--white);
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media only screen and (max-width: 770px) {
+  .mobile-nav {
+    display: initial;
+    padding: 0 0.4rem 0 0.8rem;
+    font-size: 1.4rem;
+  }
 }
