@@ -3,9 +3,5 @@
 .App {
   text-align: center;
   color: var(--black);
-}
-
-.dark {
-  background-color: var(--dark-theme-background);
-  color: var(--white);
+  min-height: 100vh;
 }

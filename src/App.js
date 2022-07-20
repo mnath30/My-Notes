@@ -1,27 +1,28 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Mockman from "mockman-js";
-import { Home, Archive, Trash } from "./pages";
-import { Navbar } from "./Components";
+import { Navbar, Sidebar } from "./Components";
 import { useTheme } from "./Context";
+import { Router } from "./router/Router";
+import { useMobileNavigation } from "./hooks";
 
 function App() {
   const { darkTheme } = useTheme();
+  const { displayMobileNav, toggleSidebar, hideSidebar } =
+    useMobileNavigation();
+
   return (
-    <div className={`App ${darkTheme ? "dark" : ""} grid`}>
-      <Navbar navTemplate="navigation-bar" />
-      <Routes>
-        <Route path="/" element={<Home contentTemplate="content-section" />} />
-        <Route
-          path="/archive"
-          element={<Archive contentTemplate="content-section" />}
-        />
-        <Route
-          path="/trash"
-          element={<Trash contentTemplate="content-section" />}
-        />
-        <Route path="/mockman" element={<Mockman />} />
-      </Routes>
+    <div className={`App ${darkTheme ? "dark" : ""}`}>
+      <Navbar toggleMobileNav={toggleSidebar} />
+      <Router />
+
+      {displayMobileNav && (
+        <div className="background-overlay" onClick={hideSidebar}>
+          <Sidebar
+            clickHandler={(e) => e.stopPropagation()}
+            hideMobileNav={hideSidebar}
+            mobileNav={displayMobileNav}
+          />
+        </div>
+      )}
     </div>
   );
 }

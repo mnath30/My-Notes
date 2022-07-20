@@ -15,3 +15,9 @@ a.active {
 .lst-container .lst:hover {
   color: var(--black);
 }
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+}
