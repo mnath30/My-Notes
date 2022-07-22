@@ -1,10 +1,13 @@
-# My Notes
+<div align="center">
+<img src="./public/favicon.ico" alt="logo" width="80" height="80"/>
+  
+  #  [My Notes](my-notes-maker.netlify.app/)  
+  
+  ####  *My Notes is a note making app where you can note down all your important notes*
+  
+</div>
  
- A web application to store all your notes in one place.
- 
- ----
- 
- ## Features
+ ### Features
  
 The web app provides the user with the ability to create new notes, archive notes, move the unwanted notes to the trash and also pin the important notes on top.
  
@@ -20,17 +23,14 @@ The search bar can be used to search the notes by note title or note content.
 
  ### Pages
  
- 1. Notes
-
-    1. [All Notes](https://my-notes-maker.netlify.app/)
-
- 2. Archive
-
-    1. [Archived Notes](https://my-notes-maker.netlify.app/archive) 
-
- 3. Trash
-
-    1. [Deleted Notes](https://my-notes-maker.netlify.app/trash)
+ 1. Landing page
+ 2. Notes page
+ 2. Archive page
+ 3. Trash page
+ 4. Authentication
+      - Login
+      - Signup
+      - Logout
 
 Checkout the live application here [My Notes](https://my-notes-maker.netlify.app/)
 
@@ -62,7 +62,9 @@ npm start
 ```
 ## Demonstration
 
-https://user-images.githubusercontent.com/55870039/163737409-d3b06441-4c7e-4c72-b2fd-00084ca5bc81.mp4
+https://user-images.githubusercontent.com/55870039/180408251-348fa88d-c933-463e-8205-77b6d9777d29.mp4
+
+
 
 
 
